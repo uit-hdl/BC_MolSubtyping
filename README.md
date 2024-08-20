@@ -53,14 +53,14 @@ Some notes:
 The configuration .json files that describe model training and evaluation are structured as follows (minus the comments):
 ```json
 {
-    "name": "My_setup",                                                            // Experiment name, will be appended to save_dir (see trainer).
+    "name": "BC_Res18",                                                            // Experiment name, will be appended to save_dir (see trainer).
     "n_gpu": 1,                                                                                 // Number of GPUs, should stay at 1.
 
     "arch": {
         "type": "MultiModel",                                                                   // Model architecture class name. Both uni- and multimodal training uses this class.
         "args": {
           "num_classes": 2,                                                                     // Number of classes, should be >= 2.
-          "lo_dims": [32,32,32],                                                                // Number of output features for each unimodal model.
+          "lo_dims": [24],                                                                      // Number of output features for each unimodal model.
                                                                                                 // --> Only one entry for unimodal training.
           "lo_pretrained": [                                                                    // Paths to the pretrained unimodal models. Omit this entry for unimodal training.
             "./saved/path/to/checkpoint/for/modality0.pth"
@@ -74,10 +74,10 @@ The configuration .json files that describe model training and evaluation are st
         "args":{
           "data_root": ".data/",                                                                // Prefix for all paths in the data description .csv files.
           "dataframes": [                                                                       // Paths to .csv files describing the training data, one for each modality in use.
-            "./config/csv/training_dataframe_for_modality0.csv"
+            "./config/csv/TRAIN.csv"
           ],
           "labels": ["Tumor_Label"],                                                            // Name of the label column in your .csv files
-          "dataframe_valid": "./config/csv/multimodal_val.csv",                                 // Path to data description used for validation/early stopping.
+          "dataframe_valid": "./config/csv/VALID.csv",                                 // Path to data description used for validation/early stopping.
                                                                                                 // These are different files for the unimodal and multimodal cases, see the previous section.
           "valid_columns": ["modality0_Path"],                                                  // Name of the columns containing the paths for each modality.
                                                                                                 // In the unimodal case, the list contains only "Path".
@@ -119,7 +119,7 @@ The configuration .json files that describe model training and evaluation are st
         "args": {},
         "epochs": 1000,                                                                         // Number of epochs to train for.
         "save_dir": "saved/",                                                                   // Prefix for the save directory (see "name" key)
-        "save_period": 10,                                                                      // Save a model checkpoint every x epochs.
+        "save_period": 50,                                                                      // Save a model checkpoint every x epochs.
         "val_period": 1,                                                                        // Validate model every x epochs, save a checkpoint if best performance yet.
         "verbosity": 2,                                                                         // Between 0 and 2. 0 is least verbose, 2 most.
         "freeze": true,                                                                         // Freeze unimodal models during multimodal training?
