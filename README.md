@@ -134,6 +134,7 @@ The configuration .json files that describe model training and evaluation are st
 
 ## Citation
 If any part of this code is used, please give appropriate citation to original authors paper:
+
 Foersch, S., Glasner, C., Woerl, AC. et al. Multistain deep learning for prediction of prognosis and therapy response in colorectal cancer. Nat Med (2023). https://doi.org/10.1038/s41591-022-02134-1
 
 
