@@ -1,0 +1,75 @@
+{
+    "name": "BC_R18",
+    "n_gpu": 1,
+    "arch": {
+        "type": "MultiModel",
+        "args": {
+            "num_classes": 2,
+            "lo_dims": [
+                24
+            ],
+            "mmhid": 64,
+            "dropout_rate": 0.33
+        }
+    },
+    "data_loader": {
+        "type": "BasicMixDataLoader",
+        "args": {
+            "data_root": "",
+            "dataframes": [
+                "./config/csv/OvR/Basal_vs_All/TRAIN.csv"
+            ],
+            "labels": [
+                "Tumor_Label"
+            ],
+            "dataframe_valid": "./config/csv/OvR/Basal_vs_All/VALID.csv",
+            "valid_columns": [
+                "Path"
+            ],
+            "shuffle": true,
+            "num_workers": 8,
+            "batch_size": 128
+        }
+    },
+    "transformations": {
+        "type": "MyImageAugmentation",
+        "args": {
+            "size": 512
+        }
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args": {
+            "lr": 1e-5
+        }
+    },
+    "loss": {
+        "type": "CrossEntropyLoss",
+        "args": {}
+    },
+    "metrics": {
+        "epoch": [
+            {
+                "type": "accuracy_epoch",
+                "args": {}
+            }
+        ],
+        "running": []
+    },
+    "trainer": {
+        "type": "BasicMultiTrainer",
+        "args": {},
+        "epochs": 1000,
+        "save_dir": "saved/Split2/OvR/",
+        "save_period": 100,
+        "val_period": 1,
+        "verbosity": 2,
+        "freeze": false,
+        "monitor": [
+            "max val_accuracy_epoch",
+            "min val_loss_epoch"
+        ],
+        "tensorboard": true,
+        "evaluation": true
+    }
+}
