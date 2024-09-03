@@ -1,11 +1,9 @@
 # BC_MolSubtyping
 This is a modified repository of MultiStainDeepLearning by Foersch et al.
 
-This is the GitHub Repository for the classification of breast H&E-stained histopathology images. It was adapted from https://github.com/AGFoersch/MultiStainDeepLearning and modified as needed. This repository can be used for any image classification task.
+This is the GitHub Repository for the classification of breast H&E-stained histopathology images. It was adapted from https://github.com/AGFoersch/MultiStainDeepLearning and modified as needed. This repository can be used for any image classification task.  
 
-
-Our paper: [Deep learning-based classification of breast cancer molecular subtypes from H&E whole-slide images](https://arxiv.org/)
-
+Our paper: [Deep learning-based classification of breast cancer molecular subtypes from H&E whole-slide images](https://arxiv.org/)  
 Original paper: [Multistain deep learning for prediction of prognosis and therapy response in colorectal cancer](https://www.nature.com/articles/s41591-022-02134-1)
 
   
