@@ -6,7 +6,7 @@ This is the GitHub Repository for the classification of breast H&E-stained histo
 Our paper: [Deep learning-based classification of breast cancer molecular subtypes from H&E whole-slide images](https://arxiv.org/)  
 Original paper: [Multistain deep learning for prediction of prognosis and therapy response in colorectal cancer](https://www.nature.com/articles/s41591-022-02134-1)  
 
-The codes for optimum thresholding and the XGboost used in our paper can be found here: https://github.com/TMasoud
+The codes for optimum thresholding and the XGboost implementation can be found here: https://github.com/TMasoud
 
   
 
